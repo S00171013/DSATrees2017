@@ -36,15 +36,11 @@ namespace DSATrees
             //ConversationNode phrase = conversataion.Find(conversataion.root, "None of your Business");
             conversation.InsertAfter("None of your Business", "How rude");
             conversation.InsertAfter("How rude", "On your Bike Muppet!");
+            conversation.InsertAfter("My Name is Bill", "Well Bill");
             conversation.TraverseTree(conversation.root,0);
 
-            //Console.WriteLine("{0}", conversataion.root.phrase);
-            //int i = 1;
-            //foreach (ConversationNode answer in conversataion.root.children)
-            //{
-            //    Console.WriteLine("Your Choices {0} {1}",i++, answer.phrase);
-            //}
             Console.ReadKey();
+            
         }
     }
 }

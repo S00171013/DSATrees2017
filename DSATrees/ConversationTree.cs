@@ -54,6 +54,17 @@ namespace DSATrees
                 TraverseTree(child, level);
             }
         }
+        public ConversationNode ChooseChild(ConversationNode current)
+        {
+            int i = 1;
+            foreach (ConversationNode answer in current.children)
+            {
+                Console.WriteLine("Your Choices {0} {1}", i++, answer.phrase);
+            }
+            if ((i = Int32.Parse(Console.ReadLine())) <= current.children.Count - 1)
+                return (current.children[i]);
+            return null;
+        }
     }
     
     public class ConversationNode
