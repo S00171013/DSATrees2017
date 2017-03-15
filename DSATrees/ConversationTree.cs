@@ -44,9 +44,7 @@ namespace DSATrees
                         foreach (ConversationNode node in current.children)
                             return Find(node, Phrase);
                 }
-                //    if (node.phrase != Phrase)
-                //        return Find(node, Phrase);
-                //    else return node;
+                
             }
             return null;
         }
@@ -67,7 +65,7 @@ namespace DSATrees
         }
         public ConversationNode ChooseChild(ConversationNode current)
         {
-            int i = 1;
+            int i = 0;
             foreach (ConversationNode answer in current.children)
             {
                 Console.WriteLine("Your Choices {0} {1}", i++, answer.phrase);
@@ -75,6 +73,17 @@ namespace DSATrees
             if ((i = Int32.Parse(Console.ReadLine())) <= current.children.Count - 1)
                 return (current.children[i]);
             return null;
+        }
+
+        public string manageConversation(ConversationNode current)
+        {
+            if(current != null)
+            {
+                if (current.children.Count > 0)
+                    return manageConversation(ChooseChild(current));
+                else return current.phrase;
+            }
+            return string.Empty;
         }
     }
     

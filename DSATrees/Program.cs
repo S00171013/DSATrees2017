@@ -39,6 +39,11 @@ namespace DSATrees
             conversation.InsertAfter("My Name is Bill", "Well Bill");
             conversation.TraverseTree(conversation.root,0);
 
+            ConversationNode HowRude = conversation.Find(conversation.root, "How rude");
+            //ConversationNode Chosen = conversation.ChooseChild(conversation.root);
+            string finalAnswer = conversation.manageConversation(HowRude);
+            Console.WriteLine("{0}", finalAnswer);
+
             Console.ReadKey();
             
         }
