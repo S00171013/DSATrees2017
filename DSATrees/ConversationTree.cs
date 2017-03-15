@@ -34,7 +34,7 @@ namespace DSATrees
                 else if (current.children.Count() > 0)
                     foreach (ConversationNode node in current.children)
                         if (node.phrase != Phrase)
-                            current = Find(node, Phrase);
+                            return Find(node, Phrase);
                         else return node;
             }
             return null;

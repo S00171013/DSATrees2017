@@ -25,18 +25,18 @@ namespace DSATrees
            //    Console.WriteLine("Found {0}", found.Val);
            //else Console.WriteLine("{0} not found", toFind);
 
-            ConversationTree conversataion = new ConversationTree();
+            ConversationTree conversation = new ConversationTree();
 
-            conversataion.root =  new ConversationNode("What is your Name",
+            conversation.root =  new ConversationNode("What is your Name",
                                     new List<string>() 
                                                 {"None of your Business",
                                                     "My Name is Bill",
                                                     "I've lost my memory"});
 
             //ConversationNode phrase = conversataion.Find(conversataion.root, "None of your Business");
-            conversataion.InsertAfter("None of your Business", "How rude");
-
-            conversataion.TraverseTree(conversataion.root,0);
+            conversation.InsertAfter("None of your Business", "How rude");
+            conversation.InsertAfter("How rude", "On your Bike Muppet!");
+            conversation.TraverseTree(conversation.root,0);
 
             //Console.WriteLine("{0}", conversataion.root.phrase);
             //int i = 1;
