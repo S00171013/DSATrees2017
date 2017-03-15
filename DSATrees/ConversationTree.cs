@@ -32,10 +32,21 @@ namespace DSATrees
                     return current;
                 }
                 else if (current.children.Count() > 0)
-                    foreach (ConversationNode node in current.children)
-                        if (node.phrase != Phrase)
+                {
+                    // Use LINQ to Check current level childern for the Phrase
+                    ConversationNode found = current.children
+                                   .FirstOrDefault(c => c.phrase == Phrase);
+                    // if found at this level then we are done
+                    if (found != null)
+                        return found;
+                    else
+                        // look to each of the children
+                        foreach (ConversationNode node in current.children)
                             return Find(node, Phrase);
-                        else return node;
+                }
+                //    if (node.phrase != Phrase)
+                //        return Find(node, Phrase);
+                //    else return node;
             }
             return null;
         }
