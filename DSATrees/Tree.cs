@@ -61,7 +61,5 @@ namespace Trees
         public TreeNode left;
         public TreeNode right;
         public int Val;
-
-        
     }
 }

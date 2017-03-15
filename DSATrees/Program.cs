@@ -33,6 +33,9 @@ namespace DSATrees
                                                     "My Name is Bill",
                                                     "I've lost my memory"});
 
+            //ConversationNode phrase = conversataion.Find(conversataion.root, "None of your Business");
+            conversataion.InsertAfter("None of your Business", "How rude");
+
             Console.WriteLine("{0}", conversataion.root.phrase);
             int i = 1;
             foreach (ConversationNode answer in conversataion.root.children)
@@ -40,8 +43,8 @@ namespace DSATrees
                 Console.WriteLine("Your Choices {0} {1}",i++, answer.phrase);
             }
 
-            conversataion.inser
-           Console.ReadKey();
+
+            Console.ReadKey();
         }
     }
 }
