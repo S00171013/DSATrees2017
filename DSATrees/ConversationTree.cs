@@ -10,7 +10,8 @@ namespace DSATrees
     {
         public ConversationNode root;
 
-        public ConversationNode InsertAfter(string phrase, string NextPhrase)
+        public ConversationNode InsertAfter(string phrase, 
+                                        string NextPhrase)
         {
             ConversationNode found = Find(root, phrase);
             if (found!= null)
@@ -39,13 +40,25 @@ namespace DSATrees
             return null;
         }
 
+        public void TraverseTree(ConversationNode current, 
+                                        int level)
+        {
+            if(current != null)
+            {
+                Console.WriteLine("Level {0} {1}"
+                        ,level.ToString(), current.phrase);
+            }
+            level++;
+            foreach (var child in current.children)
+            {
+                TraverseTree(child, level);
+            }
+        }
     }
     
     public class ConversationNode
     {
         public List<ConversationNode> children = new List<ConversationNode>();
-
-            
         public string phrase;
 
         
