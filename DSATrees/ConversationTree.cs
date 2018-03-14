@@ -13,7 +13,7 @@ namespace DSATrees
         public ConversationNode InsertAfter(string phrase, string NextPhrase)
         {
             ConversationNode found = Find(root, phrase);
-            if (found!= null)
+            if (found != null)
             {
                 ConversationNode newNode = new ConversationNode(NextPhrase, null);
                 found.children.Add(newNode);
@@ -39,16 +39,32 @@ namespace DSATrees
             return null;
         }
 
+        public ConversationNode HoldConversation(ConversationNode current)
+        {
+            if (current != null)
+            {
+                //Console.WriteLine("{0}", current.phrase);
+                int i = 0;
+                foreach (ConversationNode answer in current.children)
+                {
+                    Console.WriteLine("Responses {0} {1}", i++, answer.phrase);
+                }
+                if(current.children.Count() > 0)
+                    return current.children[int.Parse(Console.ReadLine())];
+            }
+            return null;
+        }
+
+       
     }
-    
     public class ConversationNode
     {
         public List<ConversationNode> children = new List<ConversationNode>();
 
-            
+
         public string phrase;
 
-        
+
         public ConversationNode(string Phrase,
                         List<string> childPhrases)
         {
@@ -62,6 +78,6 @@ namespace DSATrees
             }
         }
 
-        
+
     }
 }
