@@ -50,7 +50,9 @@ namespace DSATrees
                 }
                 if(current.children.Count() > 0)
                     // int.Parse(Console.ReadLine())
-                    return current.children[new Random().Next(current.children.Count())];
+                    return current.children[int.Parse(Console.ReadLine())];
+
+                //new Random().Next(current.children.Count()
             }
             return null;
         }
