@@ -43,14 +43,14 @@ namespace DSATrees
         {
             if (current != null)
             {
-                //Console.WriteLine("{0}", current.phrase);
                 int i = 0;
                 foreach (ConversationNode answer in current.children)
                 {
                     Console.WriteLine("Responses {0} {1}", i++, answer.phrase);
                 }
                 if(current.children.Count() > 0)
-                    return current.children[int.Parse(Console.ReadLine())];
+                    // int.Parse(Console.ReadLine())
+                    return current.children[new Random().Next(current.children.Count())];
             }
             return null;
         }
